@@ -55,7 +55,7 @@ const CreateCar = () => {
       };
 
       await axios.post(
-        "car-backend-tau.vercel.app/api/v1/cars/create/",
+        "car-backend-tau.vercel.app/api/v1/cars/create",
         formData,
         {
           headers,
