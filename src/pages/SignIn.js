@@ -22,7 +22,7 @@ const SignIn = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "car-backend-tau.vercel.app/api/v1/user/login",
+        "http://car-backend-tau.vercel.app/api/v1/user/login",
         {
           email,
           password,
