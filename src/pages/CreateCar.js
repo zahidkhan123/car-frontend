@@ -27,7 +27,6 @@ const CreateCar = () => {
       return;
     }
 
-    setErrorMessage("");
     setImages((prevImages) => [...prevImages, ...selectedFiles]);
   };
 
@@ -39,8 +38,6 @@ const CreateCar = () => {
       toast.error("All fields are required.");
       return;
     }
-
-    setErrorMessage("");
     setLoading(true);
 
     const user = JSON.parse(localStorage.getItem("user"));
@@ -70,13 +67,8 @@ const CreateCar = () => {
       toast.success("Car added successfully!");
     } catch (error) {
       if (error.response) {
-        setErrorMessage(
-          error.response.data.message ||
-            "An error occurred while saving the car information."
-        );
         toast.error(error.response.data.message);
       } else {
-        setErrorMessage("Network error. Please try again.");
         toast.error("Network error. Please try again.");
       }
     } finally {
