@@ -8,15 +8,13 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (!email || !password) {
-      setErrorMessage("Email and password are required.");
       toast.error("Email and password are required.");
       return;
     }
@@ -40,9 +38,6 @@ const SignIn = () => {
         setErrorMessage(message);
         toast.error(message);
       } else {
-        setErrorMessage(
-          "Something went wrong. Please check your connection and try again."
-        );
         toast.error(
           "Something went wrong. Please check your connection and try again."
         );
@@ -54,7 +49,6 @@ const SignIn = () => {
 
   return (
     <>
-      {/* Toast Container */}
       <ToastContainer position="top-right" autoClose={3000} />
 
       <div className="flex items-center justify-center h-screen bg-[#093545]">

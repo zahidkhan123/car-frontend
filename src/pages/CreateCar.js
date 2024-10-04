@@ -7,10 +7,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CreateCar = () => {
-  const navigate = useNavigate();
   const [images, setImages] = useState([]);
   const [numImages, setNumImages] = useState(1);
-  const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [carModel, setCarModel] = useState("");
   const [price, setPrice] = useState("");
@@ -19,13 +17,11 @@ const CreateCar = () => {
   const handleImageChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
 
-    // Check if the number of selected files exceeds the allowed number of images
     if (selectedFiles.length > numImages) {
       toast.error(`You can only upload up to ${numImages} image(s).`);
       return;
     }
 
-    // Check if the total number of files (existing + selected) exceeds the limit
     if (images.length + selectedFiles.length > numImages) {
       toast.error(`You can only upload up to ${numImages} image(s).`);
       return;
@@ -71,7 +67,6 @@ const CreateCar = () => {
         }
       );
       setImages([]);
-      // Show success notification
       toast.success("Car added successfully!");
     } catch (error) {
       if (error.response) {
@@ -92,7 +87,6 @@ const CreateCar = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#093545]">
       <div className="bg-[#093545] p-8 rounded-lg w-full max-w-lg">
-        {/* Toast Notifications Container */}
         <ToastContainer position="top-right" autoClose={3000} />
 
         <form onSubmit={handleSubmit}>
