@@ -35,7 +35,7 @@ const SignIn = () => {
       if (error.response && error.response.data) {
         const message =
           error.response.data.message || "An error occurred. Please try again.";
-        setErrorMessage(message);
+
         toast.error(message);
       } else {
         toast.error(

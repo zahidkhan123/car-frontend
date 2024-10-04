@@ -34,7 +34,6 @@ const CreateCar = () => {
     e.preventDefault();
 
     if (!carModel || !price || !phoneNumber) {
-      setErrorMessage("All fields are required.");
       toast.error("All fields are required.");
       return;
     }
